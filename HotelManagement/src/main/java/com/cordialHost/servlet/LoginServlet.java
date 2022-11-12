@@ -11,9 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cordialHost.dao.LoginDao;
 import com.cordialHost.entities.Login;
+import com.cordialHost.entities.Message;
 import com.cordialHost.helper.ConnectionProvider;
 
 @WebServlet("/LoginServlet")
@@ -36,21 +38,27 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("loginemail");
 		String password = request.getParameter("loginpassword");
 
+
 		try {
-			Login loginuser = new Login(name, email, password);
 			LoginDao dao = new LoginDao(ConnectionProvider.getConnection(), request, response);
+			Login loginuser = dao.Login(name,email,password);
 			dao.loginUser(loginuser);
+			
+			if (loginuser==null) {
+				Message msg = new Message("Invalid Details! Please Check the Details again","error","alert-danger");
+				HttpSession session = request.getSession();
+				session.setAttribute("msg", msg);
+				response.sendRedirect("LoginForm.jsp");
 
-			/*
-			 * if (loginuser == null) { request.getSession().setAttribute("auth",
-			 * loginuser); response.sendRedirect("orders.jsp"); } else {
-			 * out.println("User login failed"); }
-			 */
+			} else {
+				HttpSession s = request.getSession();
+				s.setAttribute("currentUser", loginuser);
+				response.sendRedirect("home.jsp");
 
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.cordialHost.servlet.LoginServlet"%>
+
+<%@page import="com.cordialHost.servlet.LoginServlet"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +54,7 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"><a id="navtext"
 						class="nav-link text-white h5" href="home.jsp">Home</a></li>
-						<li class="nav-item"><a class="nav-link text-white h5"
+					<li class="nav-item"><a class="nav-link text-white h5"
 						href="#rooms">Our Rooms</a></li>
 					<li class="nav-item"><a class="nav-link text-white h5"
 						href="accomodation.jsp">Accomodation</a></li>
@@ -72,9 +73,9 @@
 
 	<!--*****************************************************************************************-->
 	<!--slider start-->
-<!--*****************************************************************************************-->
+	<!--*****************************************************************************************-->
 
-    <!-- background image start -->
+	<!-- background image start -->
 
 	<div class="background-image" id="accomodation">
 		<div class="overlay">

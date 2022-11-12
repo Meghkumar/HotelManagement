@@ -52,7 +52,7 @@
 				<div class="mx-auto"></div>
 				<ul class="navbar-nav">
 					<li class="nav-item"><a id="navtext"
-						class="nav-link text-white h5" href="#home">Home</a></li>
+						class="nav-link text-white h5" href="home.jsp">Home</a></li>
 					<li class="nav-item"><a class="nav-link text-white h5"
 						href="#content">NearBy Places</a></li>
 					<li class="nav-item"><a class="nav-link text-white h5"
